@@ -38,13 +38,15 @@ export default function Home() {
 
   return (
     <>
-      <Image
-        src="/logo.svg"
-        alt="Logo"
-        width={250}
-        height={250}
-        priority
-      />
+      <div className='logo-container'>
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={250}
+          height={250}
+          priority
+        />
+      </div>
 
       <div className="container">
         <h1>{pageTitle}</h1>
