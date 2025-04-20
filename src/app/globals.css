@@ -1,26 +1,319 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base styling */
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+  width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #646cff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Card Grid Layout */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Movie Card Styling */
+.movie-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.movie-card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-title {
+  font-weight: 600;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.movie-year {
+  color: #a9a9a9;
+  font-size: 0.8rem;
+}
+
+/* Search Bar Styling */
+.search-container {
+  position: relative;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #646cff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.3);
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #333;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.search-dropdown-item {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.search-dropdown-item:hover {
+  background: rgba(100, 108, 255, 0.2);
+  color: #646cff;
+}
+
+/* logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #646cff;
+  margin-bottom: -5.5rem;
+}
+
+/* Loading indicator */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: #646cff;
+}
+
+/* Movie Details Page */
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.movie-details-poster {
+  align-self: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  height: auto;
+}
+
+.movie-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-details-title {
+  font-size: 2rem;
+  color: #646cff;
+  margin-bottom: 0.5rem;
+}
+
+.movie-details-tagline {
+  font-style: italic;
+  color: #a9a9a9;
+  margin-bottom: 1.5rem;
+}
+
+.movie-details-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.movie-details-stat {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+}
+
+.movie-details-overview {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.movie-details-row {
+  margin-bottom: 1rem;
+}
+
+.movie-details-label {
+  font-weight: bold;
+  color: #646cff;
+  margin-right: 0.5rem;
+}
+
+.movie-details-link {
+  color: #646cff;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.movie-details-link:hover {
+  color: #535bf2;
+}
+
+/* Back button styling */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  background: rgba(100, 108, 255, 0.1);
+  color: #646cff;
+  border: 1px solid rgba(100, 108, 255, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background: rgba(100, 108, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.back-button::before {
+  content: "←";
+  margin-right: 0.5rem;
+}
+
+/* Similar Movies Section */
+.similar-movies-section {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.similar-movies-title {
+  font-size: 1.5rem;
+  color: #646cff;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.similar-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  #root {
+    padding: 2rem;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .movie-details-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .movie-details-poster {
+    flex: 0 0 300px;
+  }
+
+  .movie-details-info {
+    flex: 1;
+  }
+
+  .similar-movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .similar-movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
 }
