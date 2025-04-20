@@ -66,7 +66,7 @@ const SearchBar = ({ onSearchResults }: SearchBarProps) => {
                 placeholder="Buscar película..."
                 className="search-input"
             />
-            {isLoading && <span>Buscando...</span>}
+            {/* {isLoading && <span>Buscando...</span>} */}
 
             {query && dropdownResults.length > 0 && showDropdown && (
                 <div className="search-dropdown">
