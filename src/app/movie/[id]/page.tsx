@@ -5,11 +5,12 @@ import MovieCard from '@/components/MovieCard';
 import { getMovieDetails, getSimilarMovies } from '@/services/movie';
 
 type Props = {
-    params: { id: string }
+    // Ahora `params` es una Promesa que al resolverse contiene `{ id: string }`
+    params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-    const id = props?.params?.id;
+    const { id } = await props.params;
     const movie = await getMovieDetails(id);
     return {
         title: `${movie.title} | Movie Browser`,
@@ -18,7 +19,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function MovieDetailsPage(props: Props) {
-    const id = props?.params?.id;
+    const { id } = await props.params;
     const movie = await getMovieDetails(id);
     const similarMovies = await getSimilarMovies(id);
 
@@ -41,7 +42,9 @@ export default async function MovieDetailsPage(props: Props) {
                 {/* Rest of your component remains the same */}
                 <div className="movie-details-info">
                     <h1 className="movie-details-title">{movie.title}</h1>
-                    {movie.tagline && <p className="movie-details-tagline">"{movie.tagline}"</p>}
+                    {movie.tagline && (
+                        <p className="movie-details-tagline">&quot;{movie.tagline}&quot;</p>
+                    )}
 
                     <div className="movie-details-stats">
                         {movie.release_date && (

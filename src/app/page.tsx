@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { getPopularMovies } from '@/services/movie';
 import MovieCard from '@/components/MovieCard';
 import SearchBar from '@/components/SearchBar';
@@ -49,7 +49,9 @@ export default function Home() {
       <div className="container">
         <h1>{pageTitle}</h1>
 
-        <SearchBar onSearchResults={handleSearchResults} />
+        <Suspense fallback={<p>···</p>}>
+          <SearchBar onSearchResults={handleSearchResults} />
+        </Suspense>
 
         {loading ? (
           <p>Cargando películas...</p>
