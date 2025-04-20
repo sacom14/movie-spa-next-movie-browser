@@ -5,7 +5,6 @@ import MovieCard from '@/components/MovieCard';
 import { getMovieDetails, getSimilarMovies } from '@/services/movie';
 
 type Props = {
-    // Ahora `params` es una Promesa que al resolverse contiene `{ id: string }`
     params: Promise<{ id: string }>;
 };
 
@@ -39,7 +38,6 @@ export default async function MovieDetailsPage(props: Props) {
                     />
                 </div>
 
-                {/* Rest of your component remains the same */}
                 <div className="movie-details-info">
                     <h1 className="movie-details-title">{movie.title}</h1>
                     {movie.tagline && (

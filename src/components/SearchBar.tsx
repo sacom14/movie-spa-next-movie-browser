@@ -49,13 +49,11 @@ const SearchBar = ({ onSearchResults }: SearchBarProps) => {
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-            // Prevent form submission and page navigation
             e.preventDefault();
             setShowDropdown(false);
         }
     };
 
-    // Use a form element with onSubmit handler to prevent actual form submission
     return (
         <form className="search-container" onSubmit={(e) => e.preventDefault()}>
             <input
@@ -66,7 +64,7 @@ const SearchBar = ({ onSearchResults }: SearchBarProps) => {
                 placeholder="Buscar película..."
                 className="search-input"
             />
-            {/* {isLoading && <span>Buscando...</span>} */}
+            {isLoading && <span> </span>}
 
             {query && dropdownResults.length > 0 && showDropdown && (
                 <div className="search-dropdown">
