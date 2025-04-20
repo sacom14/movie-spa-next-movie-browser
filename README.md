@@ -1,7 +1,7 @@
 # Movie Browser (NextJs)
 
 <div style="text-align: center;">
-    <img src="/src/assets/logo.svg" alt="Movie Browser Logo" width="200" />
+    <img src="/public/logo.svg" alt="Movie Browser Logo" width="200" />
 </div>
 
 ## Descripción
@@ -20,6 +20,40 @@
 - **App Router**: Manejo de rutas y navegación dentro de la aplicación.
 - **Vite**: Herramienta de desarrollo rápida para aplicaciones modernas.
 - **CSS Modules**: Estilización modular y reutilizable.
+
+## Estructura de carpetas
+/
+├── .env.local
+├── .env.local.example
+├── .gitignore
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+├── .next/
+├── public/
+│   ├── logo.svg
+│   └── placeholder.png
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── movie/
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   ├── components/
+│   │   ├── MovieCard.tsx
+│   │   └── SearchBar.tsx
+│   ├── interfaces/
+│   │   └── movie.ts
+│   ├── services/
+│   │   └── movie.ts
+│   └── app/
+│       └── globals.css
+
 
 ## Clonar y ejecutar el proyecto
 
