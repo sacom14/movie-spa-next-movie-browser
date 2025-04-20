@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Browser (NextJs)
 
-## Getting Started
+<div style="text-align: center;">
+    <img src="/src/assets/logo.svg" alt="Movie Browser Logo" width="200" />
+</div>
 
-First, run the development server:
+## Descripción
 
+**Movie Browser** es una aplicación web diseñada para explorar y buscar información sobre películas. La aplicación está desplegada y accesible en el siguiente enlace: [Movie Browser en Vercel](https://movie-spa-next-movie-browser.vercel.app/).
+
+## Funcionalidades
+
+- **Búsqueda de películas**: Encuentra información detallada sobre tus películas favoritas.
+- **Detalles de películas**: Consulta sinopsis, reparto, calificaciones. relacionados, etc.
+- **Interfaz amigable**: Diseño intuitivo y responsivo para una experiencia de usuario óptima.
+
+## Tecnologías utilizadas
+
+- **NextJs 15.3.1**: Biblioteca principal para la construcción de la interfaz de usuario.
+- **App Router**: Manejo de rutas y navegación dentro de la aplicación.
+- **Vite**: Herramienta de desarrollo rápida para aplicaciones modernas.
+- **CSS Modules**: Estilización modular y reutilizable.
+
+## Clonar y ejecutar el proyecto
+
+Sigue estos pasos para clonar y ejecutar la aplicación en tu entorno local:
+
+1. Clona el repositorio desde GitHub:
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd movie-spa-next
+    ```
+
+2. Crea un archivo `.env.local` basado en el ejemplo proporcionado:
+    ```bash
+    cp .env.local.example .env.local
+    ```
+    Asegúrate de completar las variables necesarias en el archivo `.env.local`.
+
+3. Instala las dependencias del proyecto:
+    ```bash
+    npm install
+    ```
+
+4. Inicia el servidor de desarrollo:
+    ```bash
+    npm run dev
+    ```
+
+## Desplegar la aplicación
+
+Para construir la aplicación para producción, utiliza el siguiente comando:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Esto generará una carpeta `dist` con los archivos optimizados para producción.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notas adicionales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Asegúrate de tener Node.js y npm instalados en tu sistema.
+- Consulta el archivo `package.json` para más detalles sobre las dependencias y scripts disponibles.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+¡Disfruta explorando películas con **Movie Browser**!  
